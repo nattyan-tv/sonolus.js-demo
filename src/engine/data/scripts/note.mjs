@@ -1,3 +1,4 @@
+import { EffectClip } from 'sonolus-core'
 import {
     Add,
     And,
@@ -15,6 +16,7 @@ import {
     Multiply,
     Not,
     Or,
+    Play,
     Pointer,
     Remap,
     SkinSprite,
@@ -77,6 +79,8 @@ export function note() {
 
             InputBucket.set(buckets.noteIndex),
             InputBucketValue.set(Multiply(1000, InputAccuracy)),
+
+            Play(Add(EffectClip.Miss, InputJudgment), 0.02),
         ]
     )
 
